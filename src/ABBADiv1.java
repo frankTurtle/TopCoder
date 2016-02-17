@@ -1,11 +1,12 @@
 /**
- * Created by BigB on 2/17/16.
+ * Created by Barret J. Nobel on 2/17/16.
+ * TopCoder Practice
  */
 public class ABBADiv1{
 
     public static void main( String[] args ){
 
-        System.out.println( canObtain("AAABBAABB", "BAABAAABAABAABBBAAAAAABBAABBBBBBBABB") );
+        System.out.println( canObtain("AAABAAABB", "BAABAAABAABAABBBAAAAAABBAABBBBBBBABB") );
 
     }
 
@@ -14,22 +15,22 @@ public class ABBADiv1{
             return ( initial.equals(target) ) ? "Possible" : "Impossible";
         }
         else{
-                String addA = initial + "A";
-                String addB = reverse( initial );
+            String addA = initial + "A";
+            String addB = "B" + reverse( initial );
 
-                if( isSubString(addB, target) )
-                    return canObtain( addB, target );
+            if( isSubString(addB, target) || isSubString(reverse(addB), target) )
+                return canObtain( addB, target );
 
-                else if( isSubString(addA, target) ){
-                    return canObtain( addA, target );
-                }
+            else if( isSubString(addA, target) || isSubString(reverse(addA), target)){
+                return canObtain( addA, target );
+            }
         }
 
-        return "Impossiblee";
+        return "Impossible";
     }
 
     private static String reverse( String addToMe ){
-        String returnString = "B";
+        String returnString = "";
 
         for( int i = addToMe.length(); i > 0; i-- ){
             returnString += addToMe.charAt( i - 1 );
