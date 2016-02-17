@@ -40,20 +40,7 @@ public class ABBADiv1{
     }
 
     private static boolean isSubString( String check, String against ){
-
         return against.toLowerCase().contains(check.toLowerCase());
-//
-//        System.out.println( "check: " + check + " " + check.length());
-//        System.out.println( "against: " + against + " " + against.length());
-//        for( int i = 0; i <= (against.length() - check.length()); i++ ){
-//
-//            System.out.println( i );
-//
-//            if( against.substring(i, check.length()).equals(check) )
-//                return true;
-//        }
-//
-//        return false;
     }
 
 }
